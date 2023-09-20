@@ -1,0 +1,23 @@
+-- 1 задача
+even' :: Int -> Bool
+even' a = if a `mod` 2==0 then True else False
+--2 задача
+odd' :: Int -> Bool
+odd' a = if a `mod` 2==1 then True else False
+--3 задача
+computeFib:: Int -> Int
+computeFib 0 = 0
+computeFib 1 = 1
+computeFib a = computeFib(a-1)+computeFib(a-2)
+-- 4 задача
+sumOddFib:: Int -> Int
+sumOddFib 1 = 1 
+sumOddFib a | computeFib(a) `mod` 2 ==1 =  computeFib(a)+sumOddFib(a-1)
+                       | otherwise = sumOddFib(a-1)
+-- 5 задача
+magicMain :: Int -> Int
+magicMain n | magic2(n) < 10 = magic2(n)
+                      | otherwise = magic2(magic2(n))
+magic2 :: Int -> Int
+magic2 n | n < 10 = n
+                | otherwise = (n `mod` 10) + (magicMain(n `div` 10))
